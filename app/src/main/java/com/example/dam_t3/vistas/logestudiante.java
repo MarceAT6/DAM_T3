@@ -68,10 +68,14 @@ public class logestudiante extends AppCompatActivity {
                         Intent intent = new Intent(logestudiante.this, MainActivity.class);
                         startActivity(intent);
                     }
+                    else {
+                        Toast.makeText(getApplicationContext(), "Dni o Contraseña Incorrecta. Intente de nuevo", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
 
                 }catch (Exception e)
                 {
-                    Toast.makeText(getApplicationContext(), "Error al insertar alumno: " + e.getMessage(), Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "Error de sistema: " + e.getMessage(), Toast.LENGTH_LONG).show();
                     e.printStackTrace();
                 }
 

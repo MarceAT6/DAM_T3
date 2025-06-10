@@ -45,14 +45,14 @@
         android:text="Perfil"
         android:textColor="#ffb912"
         android:textSize="34sp"
-        app:layout_constraintBottom_toTopOf="@+id/btn_inisec3"
+        app:layout_constraintBottom_toTopOf="@+id/btn_mapa"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     <Button
-        android:id="@+id/btn_inisec3"
+        android:id="@+id/btn_mapa"
         android:layout_width="350dp"
         android:layout_height="65dp"
         android:layout_marginTop="76dp"
@@ -60,14 +60,14 @@
         android:text="Mapa De Campus"
         android:textColor="#ffb912"
         android:textSize="34sp"
-        app:layout_constraintBottom_toTopOf="@+id/btn_inisec4"
+        app:layout_constraintBottom_toTopOf="@+id/btn_crono"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     <Button
-        android:id="@+id/btn_inisec4"
+        android:id="@+id/btn_crono"
         android:layout_width="350dp"
         android:layout_height="65dp"
         android:layout_marginTop="148dp"

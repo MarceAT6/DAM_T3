@@ -20,7 +20,7 @@ import com.example.dam_t3.R;
 public class regestudiante extends AppCompatActivity {
 
     private Button btnregistrar, btnregresar;
-    private EditText nombre, apellido, dni, contrasenia;
+    private EditText nombre, apellido, dni, contrasenia, imagen;
 
     private AlumnoController act = new AlumnoController(this);
 
@@ -40,6 +40,7 @@ public class regestudiante extends AppCompatActivity {
         apellido = findViewById(R.id.txt_apellido);
         dni = findViewById(R.id.txt_dni);
         contrasenia = findViewById(R.id.txt_contrasenia);
+        imagen = findViewById(R.id.txt_imagen);
 
         btnregresar = findViewById(R.id.btn_regresar);
         btnregistrar = findViewById(R.id.btn_registrar);
@@ -58,6 +59,7 @@ public class regestudiante extends AppCompatActivity {
                     String ape = apellido.getText().toString();
                     String dociden = dni.getText().toString().trim();
                     String contr = contrasenia.getText().toString().trim();
+                    String img = imagen.getText().toString().trim();
 
                     if (nom.isEmpty() || ape.isEmpty() || dociden.isEmpty() || contr.isEmpty()) {
                         Toast.makeText(getApplicationContext(), "Por favor, completa todos los campos", Toast.LENGTH_SHORT).show();
@@ -69,7 +71,7 @@ public class regestudiante extends AppCompatActivity {
                         return;
                     }
 
-                    Alumno dato = new Alumno(dociden, nom, ape, contr);
+                    Alumno dato = new Alumno(dociden, nom, ape, contr, img);
                     act.InsertarAlumno(dato);
 
                     Toast.makeText(getApplicationContext(), "Alumno agregado correctamente", Toast.LENGTH_SHORT).show();
@@ -78,6 +80,7 @@ public class regestudiante extends AppCompatActivity {
                     apellido.setText("");
                     dni.setText("");
                     contrasenia.setText("");
+                    imagen.setText("");
 
                     Intent intent = new Intent(regestudiante.this, logestudiante.class);
                     startActivity(intent);

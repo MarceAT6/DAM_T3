@@ -23,6 +23,8 @@ public class logestudiante extends AppCompatActivity {
     Button btningresar, btnregresar;
     EditText txtdni, txtcontrasenia;
 
+    public String dniof;
+
     private AlumnoController act = new AlumnoController(this);
 
     @Override
@@ -65,7 +67,9 @@ public class logestudiante extends AppCompatActivity {
 
                     if (bool){
                         Toast.makeText(getApplicationContext(), "Inicio de sesion exitoso", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(logestudiante.this, MainActivity.class);
+
+                        Intent intent = new Intent(logestudiante.this, menuestudiante.class);
+                        intent.putExtra("dni_usuario", dni);
                         startActivity(intent);
                     }
                     else {

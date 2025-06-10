@@ -6,20 +6,23 @@ public class Alumno {
     private String nombre;
     private String apellido;
     private String contrasenia;
+    private String imagen;
 
-    public Alumno(String dni, int idAlumno, String nombre, String apellido, String contrasenia) {
+    public Alumno(String dni, int idAlumno, String nombre, String apellido, String contrasenia, String imagen) {
         this.dni = dni;
         this.idAlumno = idAlumno;
         this.nombre = nombre;
         this.apellido = apellido;
         this.contrasenia = contrasenia;
+        this.imagen = imagen;
     }
 
-    public Alumno(String dni, String nombre, String apellido, String contrasenia) {
+    public Alumno(String dni, String nombre, String apellido, String contrasenia, String imagen) {
         this.dni = dni;
         this.nombre = nombre;
         this.apellido = apellido;
         this.contrasenia = contrasenia;
+        this.imagen = imagen;
     }
 
     public int getIdAlumno() {
@@ -60,5 +63,13 @@ public class Alumno {
 
     public void setContrasenia(String contraseña) {
         this.contrasenia = contraseña;
+    }
+
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
     }
 }

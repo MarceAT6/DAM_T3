@@ -21,7 +21,8 @@ public class UPN_DB extends SQLiteOpenHelper {
                 "dni TEXT UNIQUE NOT NULL," +
                 "nombre TEXT," +
                 "apellido TEXT," +
-                "contrasenia TEXT" +
+                "contrasenia TEXT," +
+                "imagen TEXT" +
                 ")");
     }
 

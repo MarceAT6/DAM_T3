@@ -9,8 +9,6 @@ import androidx.annotation.Nullable;
 import com.example.dam_t3.DAO.UPN_DB;
 import com.example.dam_t3.Modelo.Alumno;
 
-import java.util.ArrayList;
-
 public class AlumnoController extends UPN_DB {
 
     Context context;
@@ -24,11 +22,12 @@ public class AlumnoController extends UPN_DB {
         SQLiteDatabase database = x.getWritableDatabase();
 
         if (database != null){
-            database.execSQL("INSERT INTO Alumno (dni, nombre, apellido, contrasenia) VALUES( "+
+            database.execSQL("INSERT INTO Alumno (dni, nombre, apellido, contrasenia, imagen) VALUES( "+
                     "'" + dato.getDni() + "', " +
                     "'" + dato.getNombre() + "', " +
                     "'" + dato.getApellido() + "', " +
-                    "'" + dato.getContrasenia() +  "')"
+                    "'" + dato.getContrasenia() + "', " +
+                    "'" + dato.getImagen() +  "')"
             );
             database.close();
         }
@@ -58,5 +57,25 @@ public class AlumnoController extends UPN_DB {
         }
 
         return resultado;
+    }
+
+    public Alumno MostrarAlumno (String dni){
+        UPN_DB x = new AlumnoController(context);
+        SQLiteDatabase db = getReadableDatabase();
+        Alumno alumno = null;
+
+        Cursor cursor = db.rawQuery("SELECT * FROM Alumno WHERE dni = ?", new String[]{dni});
+        if (cursor != null && cursor.moveToFirst()) {
+            alumno = new Alumno(
+                    cursor.getString(1),
+                    cursor.getString(2),
+                    cursor.getString(3),
+                    cursor.getString(4),
+                    cursor.getString(5)
+            );
+            cursor.close();
+        }
+        db.close();
+        return alumno;
     }
 }

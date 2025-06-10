@@ -29,7 +29,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="90dp"
-        android:text="DNI"
+        android:text="Código"
         android:textColor="#1F1D1D"
         android:textSize="25sp"
         android:textStyle="bold"

@@ -70,7 +70,7 @@ public class perestudiante extends AppCompatActivity {
             dni2.setText("DNI: " + alumno.getDni());
 
             Glide.with(this)
-                    .load("https://marketplace.canva.com/EAGaiz0UGo0/1/0/1600w/canva-foto-de-perfil-de-linkedin-hombre-elegante-3IOAEhUAWKI.jpg")
+                    .load(alumno.getImagen())
                     .into(imgalumno);
 
         } else {

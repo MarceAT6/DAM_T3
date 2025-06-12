@@ -60,6 +60,7 @@ public class regestudiante extends AppCompatActivity {
                     String dociden = dni.getText().toString().trim();
                     String contr = contrasenia.getText().toString().trim();
                     String img = imagen.getText().toString().trim();
+                    String rol = "Estudiante";
 
                     if (nom.isEmpty() || ape.isEmpty() || dociden.isEmpty() || contr.isEmpty()) {
                         Toast.makeText(getApplicationContext(), "Por favor, completa todos los campos", Toast.LENGTH_SHORT).show();
@@ -71,7 +72,7 @@ public class regestudiante extends AppCompatActivity {
                         return;
                     }
 
-                    Alumno dato = new Alumno(dociden, nom, ape, contr, img);
+                    Alumno dato = new Alumno(dociden, nom, ape, contr, rol, img);
                     act.InsertarAlumno(dato);
 
                     Toast.makeText(getApplicationContext(), "Alumno agregado correctamente", Toast.LENGTH_SHORT).show();
@@ -81,9 +82,6 @@ public class regestudiante extends AppCompatActivity {
                     dni.setText("");
                     contrasenia.setText("");
                     imagen.setText("");
-
-                    Intent intent = new Intent(regestudiante.this, logestudiante.class);
-                    startActivity(intent);
 
                 }catch (Exception e){
                     Toast.makeText(getApplicationContext(), "Error al insertar alumno: " + e.getMessage(), Toast.LENGTH_LONG).show();

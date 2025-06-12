@@ -14,6 +14,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.bumptech.glide.Glide;
 import com.example.dam_t3.Controlador.AlumnoController;
 import com.example.dam_t3.Modelo.Alumno;
 import com.example.dam_t3.R;
@@ -66,11 +67,23 @@ public class logestudiante extends AppCompatActivity {
                     bool = act.SesionAlumno(dni, contrasenia);
 
                     if (bool){
-                        Toast.makeText(getApplicationContext(), "Inicio de sesion exitoso", Toast.LENGTH_SHORT).show();
+                        String rol = ObtenerRol(dni);
 
-                        Intent intent = new Intent(logestudiante.this, menuestudiante.class);
-                        intent.putExtra("dni_usuario", dni);
-                        startActivity(intent);
+                        if (rol.equals("Estudiante")) {
+                            Toast.makeText(getApplicationContext(), "Inicio de sesion exitoso", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(logestudiante.this, menuestudiante.class);
+                            intent.putExtra("dni_usuario", dni);
+                            startActivity(intent);
+                        }
+                        else if(rol.equals("Administrador")){
+                            Toast.makeText(getApplicationContext(), "Inicio de sesion exitoso", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(logestudiante.this, menuadministrador.class);
+                            intent.putExtra("dni_usuario", dni);
+                            startActivity(intent);
+                        }
+                        else {
+                            Toast.makeText(getApplicationContext(), "Sucedio un Error, Intente mas tarde", Toast.LENGTH_SHORT).show();
+                        }
                     }
                     else {
                         Toast.makeText(getApplicationContext(), "Dni o Contraseña Incorrecta. Intente de nuevo", Toast.LENGTH_SHORT).show();
@@ -86,5 +99,16 @@ public class logestudiante extends AppCompatActivity {
             }
         });
 
+    }
+
+    public String ObtenerRol(String dni){
+        Alumno alumno = act.MostrarAlumno(dni);
+        String rol = "";
+        if (alumno != null){
+            rol = alumno.getRol();
+        } else {
+            Toast.makeText(this, "No se encontró el alumno", Toast.LENGTH_SHORT).show();
+        }
+        return rol;
     }
 }

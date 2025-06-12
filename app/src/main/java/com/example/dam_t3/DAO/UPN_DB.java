@@ -23,6 +23,7 @@ public class UPN_DB extends SQLiteOpenHelper {
                 "nombre TEXT," +
                 "apellido TEXT," +
                 "contrasenia TEXT," +
+                "rol TEXT," +
                 "imagen TEXT" +
                 ")");
 
@@ -54,6 +55,9 @@ public class UPN_DB extends SQLiteOpenHelper {
                 "FOREIGN KEY(id_alumno) REFERENCES Alumno(id_alumno)," +
                 "FOREIGN KEY(id_sede) REFERENCES Sede(id_sede)" +
                 ")");
+
+        db.execSQL("INSERT INTO Alumno (dni, nombre, apellido, contrasenia, rol, imagen) " +
+                "VALUES ('11111111', 'Admin', 'Admin', 'Admin123', 'Administrador', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSy7nFdX1g_CVR4WyP5LgKOGytP0J8PE53_RQ&s')");
     }
 
     @Override

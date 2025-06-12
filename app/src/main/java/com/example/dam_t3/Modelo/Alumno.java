@@ -6,23 +6,26 @@ public class Alumno {
     private String nombre;
     private String apellido;
     private String contrasenia;
+    private String rol;
     private String imagen;
 
-    public Alumno(String dni, int idAlumno, String nombre, String apellido, String contrasenia, String imagen) {
+    public Alumno(String dni, int idAlumno, String nombre, String apellido, String contrasenia, String rol,String imagen) {
         this.dni = dni;
         this.idAlumno = idAlumno;
         this.nombre = nombre;
         this.apellido = apellido;
         this.contrasenia = contrasenia;
         this.imagen = imagen;
+        this.rol = rol;
     }
 
-    public Alumno(String dni, String nombre, String apellido, String contrasenia, String imagen) {
+    public Alumno(String dni, String nombre, String apellido, String contrasenia, String rol,String imagen) {
         this.dni = dni;
         this.nombre = nombre;
         this.apellido = apellido;
         this.contrasenia = contrasenia;
         this.imagen = imagen;
+        this.rol = rol;
     }
 
     public int getIdAlumno() {
@@ -71,5 +74,13 @@ public class Alumno {
 
     public void setImagen(String imagen) {
         this.imagen = imagen;
+    }
+
+    public String getRol() {
+        return rol;
+    }
+
+    public void setRol(String rol) {
+        this.rol = rol;
     }
 }

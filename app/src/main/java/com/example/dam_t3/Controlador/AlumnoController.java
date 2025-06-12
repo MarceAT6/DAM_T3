@@ -22,11 +22,12 @@ public class AlumnoController extends UPN_DB {
         SQLiteDatabase database = x.getWritableDatabase();
 
         if (database != null){
-            database.execSQL("INSERT INTO Alumno (dni, nombre, apellido, contrasenia, imagen) VALUES( "+
+            database.execSQL("INSERT INTO Alumno (dni, nombre, apellido, contrasenia, rol, imagen) VALUES( "+
                     "'" + dato.getDni() + "', " +
                     "'" + dato.getNombre() + "', " +
                     "'" + dato.getApellido() + "', " +
                     "'" + dato.getContrasenia() + "', " +
+                    "'" + dato.getRol() + "', " +
                     "'" + dato.getImagen() +  "')"
             );
             database.close();
@@ -71,7 +72,8 @@ public class AlumnoController extends UPN_DB {
                     cursor.getString(2),
                     cursor.getString(3),
                     cursor.getString(4),
-                    cursor.getString(5)
+                    cursor.getString(5),
+                    cursor.getString(6)
             );
             cursor.close();
         }

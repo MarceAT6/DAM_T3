@@ -13,28 +13,27 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.example.dam_t3.R;
 
-public class MainActivity extends AppCompatActivity {
+public class menuadministrador extends AppCompatActivity {
 
-    Button btniniciar, btnregistra;
+    Button btnregistra;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_menuadministrador);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
 
-        btniniciar = findViewById(R.id.btn_inisec);
+        btnregistra = findViewById(R.id.btn_registro_alumno);
 
-
-        btniniciar.setOnClickListener(new View.OnClickListener() {
+        btnregistra.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, logestudiante.class);
+                Intent intent = new Intent(menuadministrador.this, regestudiante.class);
                 startActivity(intent);
             }
         });

@@ -9,17 +9,17 @@ public class Alumno {
     private String rol;
     private String imagen;
 
-    public Alumno(String dni, int idAlumno, String nombre, String apellido, String contrasenia, String rol,String imagen) {
-        this.dni = dni;
+    public Alumno(int idAlumno, String dni, String nombre, String apellido, String contrasenia, String rol, String imagen) {
         this.idAlumno = idAlumno;
+        this.dni = dni;
         this.nombre = nombre;
         this.apellido = apellido;
         this.contrasenia = contrasenia;
-        this.imagen = imagen;
         this.rol = rol;
+        this.imagen = imagen;
     }
 
-    public Alumno(String dni, String nombre, String apellido, String contrasenia, String rol,String imagen) {
+    public Alumno(String dni, String nombre, String apellido, String contrasenia, String rol, String imagen) {
         this.dni = dni;
         this.nombre = nombre;
         this.apellido = apellido;

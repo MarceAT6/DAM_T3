@@ -68,6 +68,7 @@ public class AlumnoController extends UPN_DB {
         Cursor cursor = db.rawQuery("SELECT * FROM Alumno WHERE dni = ?", new String[]{dni});
         if (cursor != null && cursor.moveToFirst()) {
             alumno = new Alumno(
+                    Integer.parseInt(cursor.getString(0)),
                     cursor.getString(1),
                     cursor.getString(2),
                     cursor.getString(3),

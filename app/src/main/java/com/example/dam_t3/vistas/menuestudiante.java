@@ -15,7 +15,7 @@ import com.example.dam_t3.R;
 
 public class menuestudiante extends AppCompatActivity {
 
-    Button btnperfil;
+    Button btnperfil, btnhora;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,12 +28,22 @@ public class menuestudiante extends AppCompatActivity {
         });
 
         btnperfil = findViewById(R.id.btn_perfil);
+        btnhora = findViewById(R.id.btn_reghor);
         String dni = getIntent().getStringExtra("dni_usuario");
 
         btnperfil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(menuestudiante.this, perestudiante.class);
+                intent.putExtra("dni_usuario", dni);
+                startActivity(intent);
+            }
+        });
+
+        btnhora.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(menuestudiante.this, registrarhora.class);
                 intent.putExtra("dni_usuario", dni);
                 startActivity(intent);
             }

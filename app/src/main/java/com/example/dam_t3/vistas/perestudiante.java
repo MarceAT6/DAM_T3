@@ -15,18 +15,22 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.dam_t3.Controlador.AlumnoController;
+import com.example.dam_t3.Controlador.AsistenciaController;
 import com.example.dam_t3.Modelo.Alumno;
+import com.example.dam_t3.Modelo.Asistencia;
 import com.example.dam_t3.R;
 
 import com.bumptech.glide.Glide;
 
 public class perestudiante extends AppCompatActivity {
 
-    TextView nombre, apellido, dni, dni2;
+    TextView nombre, apellido, dni, dni2, txtasistencia;
     Button btnregresar;
     ImageView imgalumno;
 
     private AlumnoController act = new AlumnoController(this);
+
+    private AsistenciaController ect = new AsistenciaController(this);
 
 
     @Override
@@ -43,6 +47,7 @@ public class perestudiante extends AppCompatActivity {
         nombre = findViewById(R.id.txt_nombre_perfil);
         apellido = findViewById(R.id.txt_apellido_perfil);
         dni = findViewById(R.id.txt_dni_perfil);
+        txtasistencia = findViewById(R.id.txt_asistencia_perfil);
 
         btnregresar = findViewById(R.id.btn_regresar_perfil);
 
@@ -59,15 +64,19 @@ public class perestudiante extends AppCompatActivity {
     public void cargarEstudiante(String dni){
         Alumno alumno = act.MostrarAlumno(dni);
 
+        Asistencia asistencia = ect.RecuperarAsistencia(alumno.getIdAlumno());
+
         if (alumno != null){
             nombre = findViewById(R.id.txt_nombre_perfil);
             apellido = findViewById(R.id.txt_apellido_perfil);
             dni2 = findViewById(R.id.txt_dni_perfil);
             imgalumno = findViewById(R.id.img_alumno);
+            txtasistencia = findViewById(R.id.txt_asistencia_perfil);
 
             nombre.setText("Nombre: " + alumno.getNombre());
             apellido.setText("Apellido: " + alumno.getApellido());
             dni2.setText("DNI: " + alumno.getDni());
+            txtasistencia.setText("Ultima asistencia: " + asistencia.getHoraEnt() + " - " + asistencia.getHoraSal());
 
             Glide.with(this)
                     .load(alumno.getImagen())

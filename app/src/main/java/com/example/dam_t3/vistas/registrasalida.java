@@ -90,7 +90,7 @@ public class registrasalida extends AppCompatActivity {
 
         Asistencia asistencia = act.RecuperarAsistencia(id);
 
-        Sede local = ict.MostrarSede(asistencia.getIdSede());
+        Sede local = ict.MostrarSedeId(asistencia.getIdSede());
 
         if (asistencia != null){
 

@@ -42,7 +42,7 @@ public class SedeController extends UPN_DB {
         return datos;
     }
 
-    public Sede MostrarSede (int id){
+    public Sede MostrarSedeId (int id){
         UPN_DB x = new SedeController(context);
         SQLiteDatabase db = getReadableDatabase();
         Sede sede = null;

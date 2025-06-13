@@ -11,6 +11,8 @@ import com.example.dam_t3.DAO.UPN_DB;
 import com.example.dam_t3.Modelo.Alumno;
 import com.example.dam_t3.Modelo.Asistencia;
 
+import java.util.ArrayList;
+
 public class AsistenciaController extends UPN_DB {
     Context context;
     public AsistenciaController(@Nullable Context context){
@@ -66,5 +68,53 @@ public class AsistenciaController extends UPN_DB {
             database.update("Asistencia", valores, "id_asistencia = ?", new String[]{String.valueOf(id_asis)});
             database.close();
         }
+    }
+
+    public ArrayList<Asistencia> MostrarAsistencia(int id){
+        UPN_DB x = new AsistenciaController(context);
+        SQLiteDatabase database = x.getReadableDatabase();
+
+        ArrayList<Asistencia> datos = new ArrayList<>();
+        Cursor act = null;
+
+        act = database.rawQuery("SELECT * FROM Asistencia WHERE id_alumno = " + id, null);
+
+        if (act.moveToFirst()){
+            do{
+                datos.add(new Asistencia (Integer.parseInt(act.getString(0)),
+                        Integer.parseInt(act.getString(1)),
+                        Integer.parseInt(act.getString(2)),
+                        act.getString(3),
+                        act.getString(4),
+                        act.getString(5)
+                ));
+            }while(act.moveToNext());
+        }
+        act.close();
+        return datos;
+    }
+
+    public ArrayList<Asistencia> MostrarAsistenciaCompleta(){
+        UPN_DB x = new AsistenciaController(context);
+        SQLiteDatabase database = x.getReadableDatabase();
+
+        ArrayList<Asistencia> datos = new ArrayList<>();
+        Cursor act = null;
+
+        act = database.rawQuery("SELECT * FROM Asistencia", null);
+
+        if (act.moveToFirst()){
+            do{
+                datos.add(new Asistencia (Integer.parseInt(act.getString(0)),
+                        Integer.parseInt(act.getString(2)),
+                        Integer.parseInt(act.getString(1)),
+                        act.getString(3),
+                        act.getString(4),
+                        act.getString(5)
+                ));
+            }while(act.moveToNext());
+        }
+        act.close();
+        return datos;
     }
 }

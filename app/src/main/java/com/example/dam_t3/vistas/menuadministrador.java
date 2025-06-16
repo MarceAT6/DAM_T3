@@ -15,7 +15,7 @@ import com.example.dam_t3.R;
 
 public class menuadministrador extends AppCompatActivity {
 
-    Button btnregistra, btncrono;
+    Button btnregistra, btncrono, btnacursos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +30,7 @@ public class menuadministrador extends AppCompatActivity {
 
         btnregistra = findViewById(R.id.btn_registro_alumno);
         btncrono = findViewById(R.id.btn_cronologia);
+        btnacursos = findViewById(R.id.btn_registro_curso);
 
         btnregistra.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,6 +44,14 @@ public class menuadministrador extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(menuadministrador.this, cronologiadmin.class);
+                startActivity(intent);
+            }
+        });
+
+        btnacursos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(menuadministrador.this, regcurso.class);
                 startActivity(intent);
             }
         });

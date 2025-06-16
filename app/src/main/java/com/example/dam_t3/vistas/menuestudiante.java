@@ -15,7 +15,7 @@ import com.example.dam_t3.R;
 
 public class menuestudiante extends AppCompatActivity {
 
-    Button btnperfil, btnhora, btncrono, btnSedes;
+    Button btnperfil, btnhora, btncrono, btnSedes, btnregresar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,7 +31,7 @@ public class menuestudiante extends AppCompatActivity {
         btnhora = findViewById(R.id.btn_reghor);
         btncrono = findViewById(R.id.btn_crono);
         btnSedes = findViewById(R.id.btn_mapa);
-
+        btnregresar = findViewById(R.id.btn_regresar_menu_est);
         String dni = getIntent().getStringExtra("dni_usuario");
 
         btnperfil.setOnClickListener(new View.OnClickListener() {
@@ -69,5 +69,11 @@ public class menuestudiante extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        btnregresar.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) { finish(); }
+        });
+
     }
 }

@@ -16,7 +16,7 @@ import com.example.dam_t3.R;
 
 public class registrarhora extends AppCompatActivity {
 
-    Button entrada, salida;
+    Button entrada, salida, btnregresar ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,6 +30,7 @@ public class registrarhora extends AppCompatActivity {
 
         entrada = findViewById(R.id.btn_entrada);
         salida = findViewById(R.id.btn_salida);
+        btnregresar = findViewById(R.id.btn_regresar_salida);
 
         salida.setAlpha(0.5f);
         salida.setEnabled(false);
@@ -53,6 +54,10 @@ public class registrarhora extends AppCompatActivity {
                 startActivityForResult(intent, 200);
             }
         });
+        btnregresar.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) { finish(); }
+        });
 
     }
 
@@ -74,4 +79,5 @@ public class registrarhora extends AppCompatActivity {
             salida.setEnabled(false);
         }
     }
+
 }

@@ -21,19 +21,19 @@
       app:layout_constraintHorizontal_bias="0.491"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toBottomOf="@+id/btn_registro_curso"
-      app:layout_constraintVertical_bias="0.433" />
+      app:layout_constraintVertical_bias="0.446" />
 
   <ImageView
       android:id="@+id/imageView3"
-      android:layout_width="376dp"
-      android:layout_height="284dp"
+      android:layout_width="356dp"
+      android:layout_height="181dp"
       android:layout_marginBottom="180dp"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintHorizontal_bias="0.542"
+      app:layout_constraintHorizontal_bias="0.545"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent"
-      app:layout_constraintVertical_bias="0.37"
+      app:layout_constraintVertical_bias="0.235"
       app:srcCompat="@drawable/upn___universidad_privada_del_norte" />
 
   <Button
@@ -47,10 +47,27 @@
       android:textSize="34sp"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintHorizontal_bias="0.491"
+      app:layout_constraintHorizontal_bias="0.36"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toBottomOf="@+id/imageView3"
-      app:layout_constraintVertical_bias="0.928" />
+      app:layout_constraintVertical_bias="0.62" />
+
+  <Button
+      android:id="@+id/btn_regresar_menu"
+      android:layout_width="350dp"
+      android:layout_height="65dp"
+      android:layout_marginTop="25dp"
+      android:layout_marginBottom="16dp"
+      android:backgroundTint="#000000"
+      android:text="Regresar"
+      android:textColor="#ffb912"
+      android:textSize="34sp"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.36"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/btn_sedes"
+      app:layout_constraintVertical_bias="0.0" />
 
   <TextView
       android:id="@+id/textView12"
@@ -95,6 +112,6 @@
       app:layout_constraintHorizontal_bias="0.491"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toBottomOf="@+id/imageView3"
-      app:layout_constraintVertical_bias="0.096" />
+      app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

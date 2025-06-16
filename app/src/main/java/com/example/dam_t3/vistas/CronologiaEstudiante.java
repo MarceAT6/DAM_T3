@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -30,7 +31,7 @@ public class CronologiaEstudiante extends AppCompatActivity {
 
     ListView listacronologia;
     EditText nomape;
-
+    Button btnregresar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,6 +52,15 @@ public class CronologiaEstudiante extends AppCompatActivity {
         nomape.setText(alumno.getNombre() + " " + alumno.getApellido());
 
         cargarListaAsistencia(alumno.getIdAlumno());
+
+        btnregresar = findViewById(R.id.btn_crono_est);
+
+        btnregresar.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) { finish(); }
+        });
+
+
     }
 
     private void cargarListaAsistencia(int id) {

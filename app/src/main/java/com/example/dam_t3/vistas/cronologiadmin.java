@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -30,7 +31,7 @@ public class cronologiadmin extends AppCompatActivity {
     private AlumnoController ect = new AlumnoController(this);
     private SedeController ict = new SedeController(this);
     ListView listacronoadmin;
-
+    Button btnregresar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,9 +44,15 @@ public class cronologiadmin extends AppCompatActivity {
         });
 
         listacronoadmin = findViewById(R.id.lst_crono_admin);
-
+        btnregresar = findViewById(R.id.btn_regresar_crono);
         cargarListaAsistencia();
+        btnregresar.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) { finish(); }
+        });
+
     }
+
 
     private void cargarListaAsistencia() {
         ArrayList<Asistencia> lista = act.MostrarAsistenciaCompleta();

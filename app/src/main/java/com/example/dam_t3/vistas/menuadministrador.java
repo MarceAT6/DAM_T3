@@ -1,6 +1,7 @@
 package com.example.dam_t3.vistas;
 
 import android.content.Intent;
+import android.hardware.biometrics.PromptContentViewWithMoreOptionsButton;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -15,7 +16,7 @@ import com.example.dam_t3.R;
 
 public class menuadministrador extends AppCompatActivity {
 
-    Button btnregistra, btncrono;
+    Button btnregistra, btncrono, btnsedes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +31,7 @@ public class menuadministrador extends AppCompatActivity {
 
         btnregistra = findViewById(R.id.btn_registro_alumno);
         btncrono = findViewById(R.id.btn_cronologia);
+        btnsedes = findViewById(R.id.btn_sedes);
 
         btnregistra.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,6 +45,14 @@ public class menuadministrador extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(menuadministrador.this, cronologiadmin.class);
+                startActivity(intent);
+            }
+        });
+
+        btnsedes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(menuadministrador.this, sede.class);
                 startActivity(intent);
             }
         });

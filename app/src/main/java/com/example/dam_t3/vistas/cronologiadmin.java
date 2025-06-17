@@ -31,7 +31,7 @@ public class cronologiadmin extends AppCompatActivity {
     private AlumnoController ect = new AlumnoController(this);
     private SedeController ict = new SedeController(this);
     ListView listacronoadmin;
-    Button btnregresar;
+    TextView btnregresar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

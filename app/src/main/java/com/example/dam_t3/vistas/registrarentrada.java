@@ -2,6 +2,8 @@ package com.example.dam_t3.vistas;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -62,6 +64,7 @@ public class registrarentrada extends AppCompatActivity implements OnMapReadyCal
         btnRegistrar = findViewById(R.id.btn_registrar_hora);
         fecha = findViewById(R.id.txt_fecha);
         hora_entrada = findViewById(R.id.txt_hora_entrada);
+
 
 
         ArrayList<Sede> listaSedes = act.MostrarSede();
@@ -143,6 +146,79 @@ public class registrarentrada extends AppCompatActivity implements OnMapReadyCal
         });
         SupportMapFragment mapFragment=(SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+        fecha.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                // Desactivar temporalmente el TextWatcher
+                fecha.removeTextChangedListener(this);
+
+                String f = s.toString(); // Convertimos a String
+
+                // Si la fecha tiene más de 10 caracteres, cortamos el texto
+                if (f.length() > 10) {
+                    f = f.substring(0, 10);
+                }
+
+                // Insertamos "/" después del día y mes
+                if (f.length() > 2 && f.charAt(2) != '/') {
+                    f = f.substring(0, 2) + "/" + f.substring(2);
+                }
+                if (f.length() > 5 && f.charAt(5) != '/') {
+                    f = f.substring(0, 5) + "/" + f.substring(5);
+                }
+
+                // Establecemos el texto formateado
+                fecha.setText(f);
+                fecha.setSelection(fecha.length()); // Para que el cursor esté al final
+
+                // Volver a activar el TextWatcher
+                fecha.addTextChangedListener(this);
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+        hora_entrada.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                String hora = s.toString();
+
+                // Si el texto tiene más de 5 caracteres, lo cortamos (porque es HH:mm)
+                if (hora.length() > 5) {
+                    hora = hora.substring(0, 5);
+                }
+
+                // Si la longitud es mayor a 2 (HH), insertar ":" después de la hora
+                if (hora.length() > 2 && hora.charAt(2) != ':') {
+                    hora = hora.substring(0, 2) + ":" + hora.substring(2);
+                }
+
+                // Establecer el texto formateado en el EditText
+                hora_entrada.setText(hora);
+
+                // Poner el cursor al final del texto
+                hora_entrada.setSelection(hora.length());
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
     }
 
     @Override
@@ -163,4 +239,6 @@ public class registrarentrada extends AppCompatActivity implements OnMapReadyCal
 
         this.mMap.setOnMapLongClickListener(this);
     }
+
+
 }

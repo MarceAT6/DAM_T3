@@ -55,6 +55,7 @@ public class menuadministrador extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(menuadministrador.this,regcurso.class);
+                startActivity(i);
             }
         });
         btnsedes.setOnClickListener(new View.OnClickListener() {
